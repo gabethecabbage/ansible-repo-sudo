@@ -1,0 +1,15 @@
+---
+dependencies:
+
+galaxy_info:
+  author: gabethecabbage
+  description: Installs sudo package and adds user to the correct group for default sudo rights
+  license: BSD
+  platforms:
+    - name: Ubuntu
+    - name: Debian
+    - name: EL
+  galaxy_tags:
+    - authorisation
+    - sudo
+...

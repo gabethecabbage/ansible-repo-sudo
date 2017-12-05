@@ -1,0 +1,21 @@
+---
+- name: sudo package is installed
+  package:
+    name: sudo
+    state: present
+
+- name: users in 'sudo_users' joined to wheel group (RedHat)
+  user:
+    name: "{{ item }}"
+    groups: wheel
+    append: yes
+  with_items: "{{ sudo_users }}"
+  when: ansible_os_family == "RedHat"
+
+- name: users in 'sudo_users' joined to sudo group (Debian)
+  user:
+    name: "{{ item }}"
+    groups: sudo
+    append: yes
+  with_items: "{{ sudo_users }}"
+  when: ansible_os_family == "Debian"
